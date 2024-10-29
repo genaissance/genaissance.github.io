@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const offices = [
+  {
+    city: 'New York',
+    address: '123 AI Avenue, NY 10001',
+    phone: '+1 (555) 123-4567',
+    email: 'nyc@genaissance.ai'
+  },
+  {
+    city: 'London',
+    address: '456 Tech Lane, London EC1A 1BB',
+    phone: '+44 20 7123 4567',
+    email: 'london@genaissance.ai'
+  },
+  {
+    city: 'Singapore',
+    address: '789 Innovation Road, Singapore 018956',
+    phone: '+65 6789 0123',
+    email: 'singapore@genaissance.ai'
+  }
+];
+---
+
+<Layout 
+  title="Contact Us" 
+  description="Get in touch with GenAIssance for AI consulting services and solutions."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-renaissance-burgundy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          Contact Us
+        </h1>
+        <p class="text-xl text-gray-200">
+          Let's discuss how we can help transform your business through AI innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h2 class="font-serif text-3xl mb-6">Get in Touch</h2>
+          <form class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-renaissance-burgundy focus:border-renaissance-burgundy"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-renaissance-burgundy focus:border-renaissance-burgundy"
+                required
+              />
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-renaissance-burgundy focus:border-renaissance-burgundy"
+                required
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-renaissance-burgundy focus:border-renaissance-burgundy"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-renaissance-burgundy text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div>
+          <h2 class="font-serif text-3xl mb-6">Our Offices</h2>
+          <div class="grid gap-8">
+            {offices.map(office => (
+              <div class="bg-renaissance-cream p-6 rounded-lg">
+                <h3 class="font-serif text-xl mb-3">{office.city}</h3>
+                <div class="space-y-2 text-gray-600">
+                  <p>{office.address}</p>
+                  <p>Phone: {office.phone}</p>
+                  <p>Email: {office.email}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Frequently Asked Questions"
+        subtitle="Find quick answers to common questions about our services"
+      />
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-6">
+          {[
+            {
+              question: "How quickly can you start working on our project?",
+              answer: "We typically begin initial consultations within 48 hours of contact and can start project implementation within 1-2 weeks."
+            },
+            {
+              question: "Do you offer remote consulting services?",
+              answer: "Yes, we provide both remote and on-site consulting services to accommodate your preferences and requirements."
+            },
+            {
+              question: "What industries do you specialize in?",
+              answer: "We work across various industries including finance, healthcare, technology, and creative sectors, adapting our AI solutions to each sector's unique needs."
+            }
+          ].map(faq => (
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="font-serif text-xl mb-2">{faq.question}</h3>
+              <p class="text-gray-600">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

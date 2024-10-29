@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Welcome to GenAIssance">
+  <div class="relative min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-gradient-to-br from-renaissance-navy via-primary-900 to-renaissance-burgundy overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <!-- Add a pattern or texture here -->
+      </div>
+      <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white mb-6">
+          Welcome to the AI Renaissance
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+          Where artificial intelligence meets classical wisdom to shape the future of consulting
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="/services" class="bg-renaissance-gold text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
+            Explore Services
+          </a>
+          <a href="/contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-serif text-center mb-12">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'AI Strategy Consulting',
+              description: 'Transform your business with cutting-edge AI solutions tailored to your needs.',
+              icon: '🎯'
+            },
+            {
+              title: 'Integration & Automation',
+              description: 'Seamlessly integrate AI into your existing workflows and systems.',
+              icon: '⚙️'
+            },
+            {
+              title: 'Creative AI Solutions',
+              description: 'Harness the power of AI for creative industries and innovative projects.',
+              icon: '🎨'
+            }
+          ].map(service => (
+            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:border-renaissance-gold transition-colors">
+              <div class="text-4xl mb-4">{service.icon}</div>
+              <h3 class="text-xl font-serif mb-2">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-serif mb-6">Why GenAIssance?</h2>
+            <p class="text-gray-600 mb-6">
+              We blend the precision of artificial intelligence with the creativity and wisdom of the Renaissance era,
+              bringing a unique perspective to modern consulting challenges.
+            </p>
+            <a href="/about" class="text-renaissance-burgundy font-semibold hover:text-renaissance-navy transition-colors">
+              Learn more about our approach →
+            </a>
+          </div>
+          <div class="relative h-96 bg-renaissance-cream rounded-lg shadow-xl">
+            <!-- Placeholder for an AI-generated artwork -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

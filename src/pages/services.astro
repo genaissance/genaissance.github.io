@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const services = [
+  {
+    title: 'AI Strategy Consulting',
+    description: 'Develop comprehensive AI strategies aligned with your business objectives.',
+    features: [
+      'AI Readiness Assessment',
+      'Digital Transformation Planning',
+      'ROI Analysis',
+      'Risk Management'
+    ],
+    icon: '🎯'
+  },
+  {
+    title: 'Integration & Automation',
+    description: 'Seamlessly integrate AI solutions into your existing infrastructure.',
+    features: [
+      'Process Automation',
+      'System Integration',
+      'Workflow Optimization',
+      'Performance Monitoring'
+    ],
+    icon: '⚙️'
+  },
+  {
+    title: 'Creative AI Solutions',
+    description: 'Harness AI for creative industries and innovative projects.',
+    features: [
+      'Generative AI Implementation',
+      'Content Creation',
+      'Design Automation',
+      'Creative Workflows'
+    ],
+    icon: '🎨'
+  }
+];
+---
+
+<Layout 
+  title="Services" 
+  description="Explore our comprehensive AI consulting services at GenAIssance."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-renaissance-navy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          Our Services
+        </h1>
+        <p class="text-xl text-gray-200">
+          Comprehensive AI consulting services that blend Renaissance principles with cutting-edge technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(service => (
+          <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-renaissance-gold transition-all duration-300">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="font-serif text-2xl mb-4">{service.title}</h3>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+            <ul class="space-y-2">
+              {service.features.map(feature => (
+                <li class="flex items-center text-gray-700">
+                  <span class="text-renaissance-burgundy mr-2">•</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-renaissance-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-serif mb-6">Ready to Transform Your Business?</h2>
+      <p class="text-xl text-gray-600 mb-8">Let's discuss how our AI solutions can drive your success.</p>
+      <a href="/contact" class="inline-block bg-renaissance-burgundy text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
+        Get Started
+      </a>
+    </div>
+  </section>
+</Layout>

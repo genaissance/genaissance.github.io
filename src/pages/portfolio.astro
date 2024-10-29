@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const projects = [
+  {
+    title: 'AI-Driven Market Analysis',
+    client: 'Global Finance Corp',
+    description: 'Implemented predictive analytics for market trend analysis, resulting in 40% improved accuracy.',
+    category: 'Financial Services',
+    image: 'https://placehold.co/600x400/1a365d/ffffff?text=Market+Analytics',
+    tags: ['Predictive Analytics', 'Machine Learning', 'Data Visualization']
+  },
+  {
+    title: 'Creative Content Generation',
+    client: 'ArtisticMinds Studio',
+    description: 'Developed an AI system for generating creative content concepts, boosting productivity by 300%.',
+    category: 'Creative Industries',
+    image: 'https://placehold.co/600x400/4a5568/ffffff?text=Creative+AI',
+    tags: ['Generative AI', 'Content Creation', 'Creative Tools']
+  },
+  {
+    title: 'Automated Customer Service',
+    client: 'TechServe Solutions',
+    description: 'Created an intelligent customer service automation system with 95% satisfaction rate.',
+    category: 'Technology',
+    image: 'https://placehold.co/600x400/2a4365/ffffff?text=Customer+Service+AI',
+    tags: ['Automation', 'NLP', 'Customer Service']
+  }
+];
+---
+
+<Layout 
+  title="Portfolio" 
+  description="Explore our successful AI consulting projects and case studies at GenAIssance."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-renaissance-burgundy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          Our Portfolio
+        </h1>
+        <p class="text-xl text-gray-200">
+          Discover how we've helped organizations transform through AI innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map(project => (
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="aspect-video relative">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="text-sm text-renaissance-burgundy font-medium mb-2">
+                {project.category}
+              </div>
+              <h3 class="font-serif text-2xl mb-2">{project.title}</h3>
+              <p class="text-gray-600 mb-4">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span class="bg-renaissance-cream px-3 py-1 rounded-full text-sm text-renaissance-navy">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-renaissance-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Client Success Stories"
+        subtitle="What our clients say about working with GenAIssance"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            quote: "GenAIssance transformed our approach to data analytics. Their AI solutions provided insights we never thought possible.",
+            author: "Sarah Chen",
+            role: "CTO, Global Finance Corp"
+          },
+          {
+            quote: "The creative AI tools developed by GenAIssance revolutionized our content creation process.",
+            author: "Marcus Rivera",
+            role: "Creative Director, ArtisticMinds Studio"
+          }
+        ].map(testimonial => (
+          <blockquote class="bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-gray-600 italic mb-4">{testimonial.quote}</p>
+            <footer>
+              <div class="font-semibold">{testimonial.author}</div>
+              <div class="text-renaissance-burgundy">{testimonial.role}</div>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

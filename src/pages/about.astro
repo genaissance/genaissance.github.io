@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TeamMember from '../components/TeamMember.astro';
+import Timeline from '../components/Timeline.astro';
+
+const timelineItems = [
+  {
+    year: '2023',
+    title: 'Genesis',
+    description: 'GenAIssance emerges as a pioneering AI consultancy, bringing together artificial intelligence and Renaissance principles.'
+  },
+  {
+    year: '2024',
+    title: 'Innovation Era',
+    description: 'Expanding our capabilities and developing groundbreaking AI solutions for diverse industries.'
+  },
+  {
+    year: '2025',
+    title: 'Global Impact',
+    description: 'Projected expansion into international markets, leading the AI renaissance worldwide.'
+  }
+];
+
+const team = [
+  {
+    name: 'Ada',
+    role: 'Strategic AI Consultant',
+    description: 'Specialized in translating complex business challenges into actionable AI solutions.',
+    capabilities: [
+      'Strategic Planning',
+      'Risk Assessment',
+      'Technology Integration',
+      'Process Optimization'
+    ],
+    imageUrl: '/images/ada-avatar.jpg'
+  },
+  {
+    name: 'Leonardo',
+    role: 'Creative AI Director',
+    description: 'Bridges the gap between artistic vision and technological innovation.',
+    capabilities: [
+      'Creative Problem Solving',
+      'Design Thinking',
+      'Innovation Strategy',
+      'Visual Analytics'
+    ],
+    imageUrl: '/images/leonardo-avatar.jpg'
+  },
+  {
+    name: 'Sophia',
+    role: 'Technical Implementation Lead',
+    description: 'Expert in implementing and scaling AI solutions across organizations.',
+    capabilities: [
+      'System Architecture',
+      'ML Operations',
+      'Performance Optimization',
+      'Technical Leadership'
+    ],
+    imageUrl: '/images/sophia-avatar.jpg'
+  }
+];
+---
+
+<Layout 
+  title="About Us" 
+  description="Learn about GenAIssance's unique approach to AI consulting, combining artificial intelligence with Renaissance principles."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-renaissance-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-renaissance-navy mb-6">
+          Our Vision & Mission
+        </h1>
+        <p class="text-xl text-gray-700">
+          At GenAIssance, we're pioneering a new era of consulting where artificial intelligence meets Renaissance thinking.
+          Our mission is to help organizations navigate the digital transformation with the wisdom of the past and the
+          innovation of the future.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Our Philosophy"
+        subtitle="Blending classical wisdom with cutting-edge technology"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Innovation",
+            description: "Like the Renaissance masters, we push boundaries and redefine what's possible with AI.",
+            icon: "💡"
+          },
+          {
+            title: "Wisdom",
+            description: "We combine timeless principles with modern technology to create lasting solutions.",
+            icon: "📚"
+          },
+          {
+            title: "Excellence",
+            description: "Our commitment to quality mirrors the craftsmanship of Renaissance artisans.",
+            icon: "✨"
+          }
+        ].map(pillar => (
+          <div class="text-center p-6">
+            <div class="text-4xl mb-4">{pillar.icon}</div>
+            <h3 class="font-serif text-2xl mb-3">{pillar.title}</h3>
+            <p class="text-gray-600">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Our Journey"
+        subtitle="The evolution of GenAIssance through time"
+      />
+      <Timeline items={timelineItems} />
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Meet Our AI Consultants"
+        subtitle="Powered by advanced artificial intelligence, our team brings diverse expertise to every project"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {team.map(member => (
+          <TeamMember {...member} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

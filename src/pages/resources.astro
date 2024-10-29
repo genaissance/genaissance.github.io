@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const articles = [
+  {
+    title: 'The Renaissance of AI: A New Era in Business',
+    description: 'Explore how AI is transforming business landscapes and creating new opportunities.',
+    category: 'Thought Leadership',
+    readTime: '5 min read',
+    date: '2024-03-15'
+  },
+  {
+    title: 'Implementing AI: A Strategic Guide',
+    description: 'A comprehensive guide to successfully implementing AI in your organization.',
+    category: 'Implementation',
+    readTime: '8 min read',
+    date: '2024-03-10'
+  },
+  {
+    title: 'Creative AI: The Future of Design',
+    description: 'How AI is revolutionizing creative processes and design workflows.',
+    category: 'Innovation',
+    readTime: '6 min read',
+    date: '2024-03-05'
+  }
+];
+
+const resources = [
+  {
+    title: 'AI Implementation Toolkit',
+    description: 'Essential resources and templates for AI project implementation.',
+    type: 'Toolkit',
+    icon: '🛠️'
+  },
+  {
+    title: 'AI Readiness Assessment',
+    description: 'Evaluate your organization\'s readiness for AI adoption.',
+    type: 'Assessment',
+    icon: '📊'
+  },
+  {
+    title: 'ROI Calculator',
+    description: 'Calculate the potential return on investment for AI projects.',
+    type: 'Tool',
+    icon: '🧮'
+  }
+];
+---
+
+<Layout 
+  title="Resources" 
+  description="Access our AI consulting resources, articles, and tools at GenAIssance."
+>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-renaissance-navy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          Resources
+        </h1>
+        <p class="text-xl text-gray-200">
+          Insights, tools, and knowledge to help you navigate the AI revolution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Latest Articles"
+        subtitle="Insights and perspectives on AI consulting and implementation"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map(article => (
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                <span>{article.category}</span>
+                <span>{article.readTime}</span>
+              </div>
+              <h3 class="font-serif text-xl mb-2">{article.title}</h3>
+              <p class="text-gray-600 mb-4">{article.description}</p>
+              <div class="flex justify-between items-center">
+                <time class="text-sm text-gray-500">{new Date(article.date).toLocaleDateString()}</time>
+                <a href="#" class="text-renaissance-burgundy hover:text-renaissance-navy transition-colors">
+                  Read more →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Resources -->
+  <section class="py-20 bg-renaissance-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Tools & Resources"
+        subtitle="Practical tools to support your AI journey"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {resources.map(resource => (
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="text-4xl mb-4">{resource.icon}</div>
+            <h3 class="font-serif text-xl mb-2">{resource.title}</h3>
+            <p class="text-gray-600 mb-4">{resource.description}</p>
+            <a
+              href="#"
+              class="inline-block text-renaissance-burgundy hover:text-renaissance-navy transition-colors"
+            >
+              Access now →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
